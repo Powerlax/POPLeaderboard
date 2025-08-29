@@ -5,7 +5,7 @@ class LeaderBoard:
     def __init__(self):
         self.leaderboard = json.load(open('leaderboard.json'))
         self.ledger = json.load(open('ledger.json'))
-        self.s3 = boto3.boto3.client("s3", region_name="us-east-2")
+        self.s3 = boto3.client("s3", region_name="us-east-2")
         self.BUCKET_NAME = "pop-leaderboard-backup"
 
     def addNewUser(self, name):
@@ -36,4 +36,5 @@ class LeaderBoard:
             json.dump(self.ledger, f, indent=4)
 
         
+
 
