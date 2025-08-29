@@ -11,7 +11,8 @@ def createUser():
     try:
         leaderboard.addNewUser(request.get_json()['username'])
         return "success", 200
-    except Exception as e:
+    except Exception:
+        print(traceback.format_exc())
         return "failed", 400
 
 @app.route('/updateScore', methods=['POST'])
@@ -39,6 +40,7 @@ def getUserList():
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
