@@ -34,12 +34,13 @@ def getLeaderboard():
 @app.route('/getUserList', methods=['GET'])
 def getUserList():
     try:
-        return jsonify(leaderboard.returnSortedLeaderboard()), 200
+        return jsonify({"userList" : leaderboard.getUsers()}), 200
     except Exception as e:
         return "failed", 400
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
