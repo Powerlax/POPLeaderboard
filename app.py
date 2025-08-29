@@ -22,6 +22,7 @@ def updateScore():
         leaderboard.updateScore(thing['username'], thing['reason'], thing['score'])
         return "success", 200
     except Exception as e:
+        print(traceback.format_exc())
         return "failed", 400
 
 @app.route('/getLeaderboard', methods=['GET'])
@@ -40,6 +41,7 @@ def getUserList():
 
 if __name__ == '__main__':
     app.run()
+
 
 
 
